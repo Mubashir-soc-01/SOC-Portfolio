@@ -1,5 +1,5 @@
 # SOC-Portfolio
-My SOC journey - Projects, labs, and Skills
+My SOC journey - Mini Projects, labs, and Skills
 
 Statring my SOC Analyst journey.
-Project and work will be added here daily
+My SOC Analyst Learning Journey — 15 Day
