@@ -1,0 +1,25 @@
+Day 1 — Networking Commands
+
+I run these commands during my lab practice.
+
+TCP Handshake — Wireshark
+I used this filter to see the handshake:
+tcp.flags.syn == 1
+
+Checking open ports on Windows
+netstat -an | findstr "LISTENING"
+
+On Linux
+sudo netstat -tulpn
+Sometimes I use ss -tulpn
+
+Nmap scans I tried
+
+To check what software is running:
+nmap -sV 192.168.1.36
+
+To guess the OS:
+nmap -O 192.168.1.36
+
+All commands worked fine.
+Date: 1 April 2026 
