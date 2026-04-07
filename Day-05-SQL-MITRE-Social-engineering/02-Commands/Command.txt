@@ -1,0 +1,43 @@
+Day 5 — SQL Injection, MITRE ATT&CK, Social Engineering
+
+SQL Injection on DVWA:
+
+1. Login bypass:
+1' OR '1'='1' #
+
+2. Dump passwords:
+1' UNION SELECT 1,user,password FROM users #
+
+MITRE ATT&CK — PowerShell (T1059.001):
+
+Information from MITRE website:
+
+Technique ID: T1059.001
+Sub-technique of: T1059
+Tactic: Execution
+Platforms: Windows
+
+Description:
+Adversaries may abuse PowerShell commands and scripts for execution.
+PowerShell can be used for:
+- Discovery of information
+- Execution of code
+- Start-Process cmdlet (run executables)
+- Invoke-Command cmdlet (run locally or remotely)
+
+Real attacker example:
+Sandworm Team used PowerShell to run credential harvesting tool in memory.
+
+Social Engineering:
+
+Real world example — Twitter Hack 2020
+- Attackers called employees pretending to be IT support
+- Employees gave their passwords
+- Celebrity accounts were hacked
+
+Red flags to remember:
+- Someone asking for password on phone
+- Urgency created by caller
+- Authority trick ("I'm from IT")
+
+Date: 7 April 2026
