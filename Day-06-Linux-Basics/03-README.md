@@ -16,12 +16,11 @@
 - Listed all logs in /var/log/ directory
 - Viewed auth.log and syslog using head and tail
 
-### 3. grep, awk, tail, sed
+### 3. grep, awk
 - Created a test log file with SSH login attempts
 - Used grep to find failed passwords
 - Used awk to extract IP addresses and usernames
 - Used sort, uniq, sort -nr to find top attacking IPs
-- Used sed to replace text
 
 ## Screenshots
 All screenshots in 01-Screenshots folder
@@ -30,10 +29,9 @@ All screenshots in 01-Screenshots folder
 All commands in 02-Commands folder
 
 ## Key Learnings
-- chmod 755 is common for scripts, 644 for normal files
+- chmod 755 is common for scripts, also try normal file
 - /var/log/auth.log is first place to check for SSH brute force
 - grep + awk can extract attacking IPs from logs
-- tail -f is useful for real-time monitoring
 
 ## Time Spent
 - Theory: 1 hrs.
