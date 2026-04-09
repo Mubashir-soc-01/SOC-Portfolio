@@ -1,6 +1,6 @@
 Day 7 — Processes, SSH Logs, Cron Jobs
 
-PROCESSES & PID
+PROCESSES
 
 1. See all running processes:
 ps aux
@@ -13,7 +13,7 @@ htop
 
 FAILED SSH LOGIN DETECTION
 
-1. Create a test log in nano
+1. Create a test log
 cat > test.log << EOF
 Apr 9 10:00:15 server sshd[1234]: Failed password for root from 192.168.1.100 port 54321
 Apr 9 10:00:20 server sshd[1234]: Failed password for root from 192.168.1.100 port 54322
