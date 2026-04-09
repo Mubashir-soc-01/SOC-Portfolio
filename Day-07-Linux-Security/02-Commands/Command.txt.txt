@@ -1,0 +1,69 @@
+Day 7 — Processes, SSH Logs, Cron Jobs
+
+PROCESSES & PID
+
+1. See all running processes:
+ps aux
+
+2. Real-time process monitoring:
+
+3. Better process viewer
+htop
+
+
+FAILED SSH LOGIN DETECTION
+
+1. Create a test log in nano
+cat > test.log << EOF
+Apr 9 10:00:15 server sshd[1234]: Failed password for root from 192.168.1.100 port 54321
+Apr 9 10:00:20 server sshd[1234]: Failed password for root from 192.168.1.100 port 54322
+Apr 9 10:00:25 server sshd[1234]: Failed password for admin from 192.168.1.101 port 54323
+Apr 9 10:01:30 server sshd[1234]: Accepted password for root from 192.168.1.200 port 54324
+EOF
+
+2. Find all failed password attempts:
+grep "Failed password" test.log
+
+3. Count total failed attempts:
+grep -c "Failed password" test.log
+
+4. Extract attacking IPs (11th column):
+grep "Failed password" test.log | awk '{print $11}'
+
+5. Extract usernames (9th column):
+grep "Failed password" test.log | awk '{print $9}'
+
+6. Find top attacking IPs with count:
+grep "Failed password" test.log | awk '{print $11}' | sort | uniq -c | sort -nr
+
+7. Real SOC command (on real /var/log/auth.log):
+sudo cat /var/log/auth.log
+
+
+CRON JOBS
+
+1. View current user's cron jobs:
+crontab -l
+
+2. Add a test cron job:
+crontab -e
+# Add this line:
+# */5 * * * * echo "Hello" >> /tmp/test.txt
+
+3. Verify cron job added:
+crontab -l
+
+4. View system cron directories:
+ls -la /etc/cron.d/
+ls -la /etc/cron.hourly/
+ls -la /etc/cron.daily/
+ls -la /etc/cron.weekly/
+
+5. Check cron logs:
+sudo grep CRON /var/log/syslog | tail -10
+
+6. Remove all cron jobs:
+crontab -r
+
+
+Date: 9 April 2026
