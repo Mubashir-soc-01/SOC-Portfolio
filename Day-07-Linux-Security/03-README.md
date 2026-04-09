@@ -1,7 +1,7 @@
 # Day 7 — Processes, SSH Logs, Cron Jobs
 
 ## Topics Covered
-- Processes & PID
+- Processes
 - Failed SSH Login Detection
 - Cron Jobs + Misuse
 
