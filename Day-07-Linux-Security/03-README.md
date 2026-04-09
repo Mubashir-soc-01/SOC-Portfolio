@@ -7,7 +7,7 @@
 
 ## Practicals Done
 
-### 1. Processes & PID
+### 1. Processe
 - Viewed all running processes using ps aux
 - Used top for real-time monitoring
 
