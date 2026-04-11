@@ -1,0 +1,58 @@
+Day 8 — Windows Event Logs Practical
+
+Practical 1: Event ID 4624 (Successful Logon)
+
+Step 1: Open Event Viewer
+Press Windows Key + R, type eventvwr.msc, press Enter
+
+Step 2: Go to Security Log
+Click Windows Logs → Security
+
+step3: Lock Computer
+Press Windows Key + L
+
+Step 4: Filter Event ID 4624
+Right click on Security → Filter Current Log
+In Event IDs box, type 4624
+Click OK
+
+step 5: Then check Events 
+
+Practical 2: Event ID 4625 (Failed Logon)
+
+Step 1: Lock Computer
+Press Windows Key + L
+
+Step 2: Generate Failed Attempts
+Type wrong password 2 to 3 times
+
+Step 3: Filter Event ID 4625
+Open Event Viewer → Windows Logs → Security
+Right click Security → Filter Current Event
+Event IDs: 4625 → OK
+
+Step 4: Check Status Code
+Look for Status: 0xC000006D (this means wrong password)
+
+
+Practical 3: Event ID 4688 (Process Creation)
+
+Step 1: Enable Process Creation Logging
+Open Command Prompt as Administrator
+Type: auditpol /set /subcategory:"Process Creation" /success:enable
+Press Enter
+
+Step 2: Close Command Prompt
+
+Step 3: Open Notepad
+
+Step 4: Filter Event ID 4688
+Open Event Viewer → Windows Logs → Security
+Right click Security → Filter Current Log
+Event IDs: 4688 → OK
+
+Step 5: Find notepad.exe
+Look for notepad.exe in the list
+
+
+Date: 10 April 2026
