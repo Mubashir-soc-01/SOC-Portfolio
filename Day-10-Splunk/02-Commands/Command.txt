@@ -1,0 +1,39 @@
+Day 10 — Splunk SIEM Basics (Failed Login Detection)
+
+I created a test user and generated failed login attempts for practice.
+
+Steps I followed:
+
+1. Created a test user in Windows (Command Prompt as Admin):
+   net user testuser Test@123 /add
+
+2. Locked the screen or logged off, then tried wrong password 4-5 times to generate Event ID 4625
+
+3. Installed Splunk Enterprise on Windows
+
+4. Added data in Splunk:
+   Settings → Add Data → Local Event Logs → Selected Security log
+
+5. Searched for failed login events:
+   index=* EventCode=4625
+
+6. Filtered by host:
+   index=* EventCode=4625 host=mubashir
+
+7. Counted failed attempts by host:
+   index=* EventCode=4625 | stats count by host
+
+8. Created dashboard:
+   Name: Soc Brute Force Monitor (for monitoring failed logins)
+
+9. Created alert:
+   Name: Brute Force Detection
+   Condition: Number of results > 0
+   Schedule: Weekly
+
+Search queries:
+   index=* EventCode=4625
+   index=* EventCode=4625 host=mubashir
+   index=* EventCode=4625 | stats count by host
+
+Date: 22 April 2026
